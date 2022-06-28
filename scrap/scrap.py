@@ -1,12 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
+from debug_tools.logger import logger
 
 
+@logger('logs')
 def request(url):
     page = requests.get(url)
     return page
 
 
+@logger('logs')
 def get_articles(url, page):
     list = []
     if page.status_code == 200:

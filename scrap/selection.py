@@ -1,8 +1,10 @@
 import re
 from config import KEYWORDS
 from bs4 import BeautifulSoup
+from debug_tools.logger import logger
 
 
+@logger('logs')
 def get_pattern():
     pattern = ''
     for item in KEYWORDS:
@@ -10,6 +12,7 @@ def get_pattern():
     return pattern[:-1]
 
 
+@logger('logs')
 def get_article_text(title, page):
     pattern = get_pattern()
     if page.status_code == 200:
